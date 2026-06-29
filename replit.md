@@ -1,36 +1,52 @@
-# [Project name]
+# Sentinel-AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A fully interactive enterprise AI privacy middleware platform for secure, reversible PII redaction — enabling safe AI workflows without exposing sensitive data.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/sentinel-ai run dev` — run the frontend (port assigned by workflow)
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React + Vite, Tailwind CSS, framer-motion, shadcn/ui
+- PII Detection: client-side regex (piiDetector.ts)
+- PDF extraction: pdfjs-dist (client-side)
+- OCR: tesseract.js (client-side)
+- File uploads: react-dropzone
+- API: Express 5 (api-server)
+- DB: PostgreSQL + Drizzle ORM (not used by Sentinel-AI frontend)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/sentinel-ai/src/` — main frontend app
+- `artifacts/sentinel-ai/src/lib/piiDetector.ts` — PII detection logic (regex-based)
+- `artifacts/sentinel-ai/src/lib/pdfExtractor.ts` — PDF.js text extraction
+- `artifacts/sentinel-ai/src/lib/imageOcr.ts` — Tesseract.js OCR
+- `artifacts/sentinel-ai/src/context/SentinelContext.tsx` — global app state
+- `artifacts/sentinel-ai/src/components/` — UI panel components
+- `artifacts/sentinel-ai/src/pages/SentinelApp.tsx` — main page
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Fully client-side: all PII detection, redaction, and restoration happens in the browser — no data leaves the device (Zero Cloud Exposure)
+- No backend required for core workflow; api-server exists for future enterprise features
+- Placeholder mapping stored in React context state: Map<placeholder, originalValue>
+- PDF.js uses CDN worker to avoid bundling the worker
+- Tesseract.js handles image OCR client-side
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Sentinel-AI is a "Secure Context Rehydration" platform:
+1. User uploads or pastes sensitive documents
+2. Client-side regex detects PII entities (names, emails, phones, financials, IDs, medical data)
+3. Sensitive data replaced with typed placeholders ([PERSON_1], [EMAIL_1], etc.)
+4. User copies sanitized text into any external AI
+5. User pastes AI response back — Sentinel restores original values automatically
+6. Full audit log of all restoration events
 
 ## User preferences
 
@@ -38,7 +54,10 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- index.css: Google Font @import url() MUST be the FIRST line before @import "tailwindcss"
+- All CSS custom properties start as `red` placeholders — must be replaced with proper HSL values or the UI will be red
+- pdfjs-dist worker must use CDN URL: cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js
+- No API hooks needed — this is a frontend-only app with no codegen
 
 ## Pointers
 

@@ -1,0 +1,393 @@
+# BUILD A FULLY INTERACTIVE ENTERPRISE AI PRIVACY PLATFORM CALLED “SENTINEL-AI”
+
+IMPORTANT:
+DO NOT generate a static demo.
+DO NOT hardcode sample data.
+DO NOT prefill fixed information.
+DO NOT lock any inputs.
+
+This application MUST be FULLY INTERACTIVE and allow users to:
+
+* upload their own documents,
+* paste their own text,
+* upload AI-generated responses,
+* dynamically redact sensitive information,
+* and restore sensitive information afterward.
+
+Everything must work with REAL user inputs.
+
+---
+
+# CORE PRODUCT IDEA
+
+---
+
+Sentinel-AI is a privacy-preserving AI middleware platform.
+
+The workflow:
+
+1. User uploads a sensitive document OR pastes custom text.
+2. The system detects sensitive entities dynamically.
+3. Sensitive data is replaced with placeholders.
+4. User copies sanitized text into any AI model externally.
+5. User pastes the AI-generated response back into Sentinel-AI.
+6. Sentinel restores the original sensitive information automatically.
+
+This feature is called:
+
+# “Secure Context Rehydration”
+
+The app should demonstrate:
+
+* AI privacy protection
+* reversible redaction
+* secure AI workflows
+* enterprise-safe AI adoption
+
+---
+
+# VERY IMPORTANT FUNCTIONAL REQUIREMENTS
+
+---
+
+The app MUST allow:
+
+* dynamic text input
+* dynamic document uploads
+* dynamic AI response uploads/pasting
+* editable workflows
+* real-time placeholder restoration
+
+NO hardcoded examples.
+
+NO fixed demo text.
+
+Users must be able to:
+
+* completely erase all text
+* upload new files
+* paste custom AI responses
+* regenerate mappings dynamically
+
+---
+
+# REQUIRED USER FLOW
+
+---
+
+---
+
+## STEP 1 — USER INPUT
+
+Allow users to:
+
+* upload PDFs
+* upload images
+* upload text files
+* paste raw text manually
+
+Provide:
+
+* drag-and-drop upload
+* editable text area
+* upload progress animations
+
+Users MUST be able to:
+
+* replace uploaded documents
+* clear all data
+* edit extracted text manually
+
+---
+
+## STEP 2 — PII DETECTION
+
+Detect dynamically:
+
+* names
+* emails
+* phone numbers
+* addresses
+* Aadhaar numbers
+* passport IDs
+* PAN numbers
+* salaries
+* financial information
+* medical data
+
+Highlight detected entities visually.
+
+Use animated entity detection overlays.
+
+Display confidence scores.
+
+---
+
+## STEP 3 — SANITIZATION
+
+Replace sensitive data with placeholders:
+
+Examples:
+John Doe → [PERSON_1]
+$100k → [MONEY_1]
+
+Generate placeholder mappings dynamically.
+
+Store mappings internally.
+
+Allow users to:
+
+* edit placeholders manually
+* toggle specific entities on/off
+* choose which data to redact
+
+---
+
+## STEP 4 — AI EXPORT
+
+Provide a section:
+
+# “Safe AI Input”
+
+Users can:
+
+* copy sanitized text
+* export sanitized document
+* send sanitized content to external AI tools manually
+
+Add buttons:
+
+* Copy Sanitized Text
+* Export Safe Document
+
+---
+
+## STEP 5 — AI RESPONSE IMPORT
+
+THIS IS CRITICAL.
+
+Provide a dedicated section:
+
+# “Paste AI Response”
+
+Users MUST be able to:
+
+* paste AI-generated responses manually
+* upload AI response text files
+* edit AI outputs directly
+
+The pasted AI response MUST contain placeholders like:
+[PERSON_1]
+[MONEY_1]
+
+---
+
+## STEP 6 — CONTEXT RESTORATION
+
+Using stored mappings:
+restore original sensitive information automatically.
+
+Example:
+
+AI response:
+[PERSON_1] appears financially stable.
+
+Restored output:
+John Doe appears financially stable.
+
+This restoration MUST work dynamically with:
+
+* any uploaded document
+* any user input
+* any pasted AI response
+
+---
+
+# UI/UX REQUIREMENTS
+
+---
+
+The interface should feel:
+
+* futuristic
+* cinematic
+* enterprise-grade
+* cybersecurity-focused
+* AI-native
+
+NOT:
+
+* basic form app
+* static dashboard
+* fake prototype
+
+---
+
+# DESIGN STYLE
+
+---
+
+Use:
+
+* dark mode
+* glassmorphism
+* neon highlights
+* animated cards
+* smooth transitions
+* glowing borders
+* floating panels
+* cybersecurity aesthetics
+
+Color palette:
+
+* matte black
+* charcoal
+* deep blue
+* emerald green
+* subtle purple
+* red threat indicators
+
+---
+
+# LAYOUT
+
+---
+
+Create a 3-panel responsive layout.
+
+---
+
+## LEFT PANEL — ORIGINAL INPUT
+
+Features:
+
+* upload section
+* drag-and-drop
+* editable text area
+* OCR output viewer
+* entity highlighting
+
+Users can:
+
+* modify text
+* clear text
+* upload new documents
+
+---
+
+## CENTER PANEL — SANITIZED OUTPUT
+
+Show:
+
+* redacted text
+* placeholders
+* entity mappings
+* export buttons
+
+Add:
+
+* animated redaction effects
+* “Safe for AI” indicators
+* security shield visuals
+
+---
+
+## RIGHT PANEL — CONTEXT RESTORATION
+
+Include:
+
+* AI response input area
+* restore button
+* restored final output
+* audit logs
+* restoration mapping viewer
+
+Users MUST be able to:
+
+* paste any AI response
+* edit AI response manually
+* regenerate restored output dynamically
+
+---
+
+# ADDITIONAL FEATURES
+
+---
+
+Add:
+
+* Privacy Risk Meter
+* Threat Detection Console
+* Live Audit Logs
+* Compliance Badges
+* AI Attack Simulation
+* Prompt Injection Detection
+* Privacy Heatmap
+* Secure Pipeline Visualization
+* AI Tool Compatibility Section
+* “Local Inference Enabled” badge
+* Zero Cloud Exposure indicators
+
+---
+
+# ATTACK SIMULATION FEATURE
+
+---
+
+Create:
+
+# “Threat Simulation Mode”
+
+Allow users to:
+
+* simulate malicious prompts
+* attempt data extraction
+* test prompt injection attacks
+
+Show:
+
+* blocked attacks
+* protected outputs
+* attack prevention status
+
+---
+
+# EXECUTIVE DEMO MODE
+
+---
+
+Add a button:
+
+# “Run Demo Scenario”
+
+This automatically:
+
+* uploads a sample document
+* detects entities
+* sanitizes data
+* simulates AI interaction
+* restores context
+
+BUT:
+users MUST still be able to fully replace all demo data afterward.
+
+---
+
+# MOST IMPORTANT REQUIREMENTS
+
+---
+
+1. EVERYTHING must be editable.
+2. EVERYTHING must support dynamic user input.
+3. NO hardcoded sample data.
+4. NO locked demo screens.
+5. Users must be able to upload their own files.
+6. Users must be able to paste custom AI responses.
+7. Restoration must work dynamically.
+8. The app should feel production-grade.
+9. Prioritize smooth animations and premium UI.
+10. The app should look hackathon-winning immediately.
+
+The final product should feel like:
+
+# “The operating system for secure enterprise AI.”
